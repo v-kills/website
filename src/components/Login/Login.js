@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Sheet from '@mui/joy/Sheet';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Typography from '@mui/joy/Typography';
@@ -6,12 +6,34 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
-// import Link from '@mui/joy/Link';
+import PropTypes from 'prop-types';
 
 
 // Todo move the mui messy css stuff to a login.css file and customize it
 
-export default function login() {
+async function loginUser(credentials) {
+    return fetch('http://localhost:8080/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    })
+      .then(data => data.json())
+   }
+   
+export default function Login( {setToken} ) {
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+  
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+          username,
+          password
+        });
+        setToken(token);
+      }
     return (
 <main>
 =      <CssBaseline />
@@ -38,7 +60,7 @@ export default function login() {
         </div>
         <FormControl>
           <FormLabel>Email</FormLabel>
-          <Input
+          <Input onChange={e => setUserName(e.target.value)}
             // html input attribute
             name="email"
             type="email"
@@ -47,17 +69,19 @@ export default function login() {
         </FormControl>
         <FormControl>
           <FormLabel>Password</FormLabel>
-          <Input
+          <Input onChange={e => setPassword(e.target.value)}
             // html input attribute
             name="password"
             type="password"
             placeholder="password"
           />
         </FormControl>
-        <Button sx={{ mt: 1 /* margin top */ }}>Log in</Button>
+        <Button onClick={handleSubmit} sx={{ mt: 1 /* margin top */ }}>Log in</Button>
         
       </Sheet>
     </main>
-    )
+    );
+    Login.propTypes = {
+        setToken: PropTypes.func.isRequired
 }
-
+}

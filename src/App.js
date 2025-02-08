@@ -1,15 +1,24 @@
-// import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
 import { BrowserRouter, Routes, Route,  } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import Login from './components/Login/Login';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
 import LoginPage from './pages/LoginPage';
-import ProtectedRoute from './ProtectedRoute';
+// import ProtectedRoute from './ProtectedRoute';
 
 function App() {
+
+  const [token, setToken] = useState();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
+
   return (
     <BrowserRouter>
     <div className='App'>

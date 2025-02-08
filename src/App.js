@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
+import LoginPage from './pages/LoginPage';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,8 @@ function App() {
       <Route path='/about' element={<AboutPage/>} />
       <Route path='/search' element={<SearchPage/>} />
       <Route path='/error' element={<NotFoundPage/>} />
+      <Route path='/login' element={<LoginPage/>} />
+
 {/* todo make blog pages */}
     </Routes>
       

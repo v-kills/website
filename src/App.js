@@ -1,16 +1,19 @@
 // import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
-import Navbar from './components/NavBar' 
-
 function App() {
   return (
     <BrowserRouter>
     <div className='App'>
+      <div>
+      <NavBar/>
+
+      </div>
     <div id='page-body'></div>
     <Routes>
       <Route path='/' element={<HomePage/>} />
@@ -21,9 +24,9 @@ function App() {
     </Routes>
       
     </div>
-    </BrowserRouter>
+    </BrowserRouter> 
 
   );
 }  
-
+ 
 export default App;

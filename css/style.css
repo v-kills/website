@@ -1,0 +1,203 @@
+* {
+    /* sets the over all look  */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+:root {
+    --primary-color: #2FA8E3;
+    --light-color: #F8FAFB;
+    --dark-color: #BC54BF;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: white;
+}
+
+.header {
+    height: 100vh;
+    background-image: 
+    linear-gradient(to right bottom, 
+   rgba(76, 216, 255, 0.8),
+   rgba(30, 108, 217, 0.8)),
+   url('/images/flowers.jpeg');
+
+    background-size: cover;
+    background-position: top;
+    position: relative;
+ /* this is cutting the bottom corner off the header */
+    clip-path: polygon(0 0, 100% 0, 
+    100% 75vh, 0 100%);
+}
+
+.brand-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.brand { font-size: 20px;}
+
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 30px;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size:18px;
+    font-weight: 700;
+    letter-spacing: 7.4px;
+}
+
+.btn:link, 
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translate(-3px);
+    box-shadow: 0 10px 20px
+    rgba(0, 0, 0, 0.2);
+}
+
+.btn-white{
+    background-color: #fff;
+    color: #777;
+    font-size: 14px;
+}
+.btn:active {
+    transform: translate(-1px);
+    box-shadow: 0 5px 10px
+    rgba(0, 0, 0, 0.2);
+}
+.sm-image {
+    min-width: 75px;
+    max-width: 75px; }
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+/* Nav Bar */
+.navbar {
+    background: white;
+    padding: 20px;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .main-menu ul {
+    display: flex;
+  }
+  
+  .navbar ul li a {
+    padding: 10px 20px;
+    display: block;
+    font-weight: 600;
+    transition: 0.2s;
+  
+  }
+.navbar ul li a i {
+    margin-right: 10px;
+}
+
+.navbar ul li a:hover{
+    color: var(--primary-color);
+}
+
+.navbar ul la:last-child a {
+    margin-left: 10px;
+}
+
+/*  Utility Classes */
+
+
+.container {
+    max-width: 1110px;
+    /* sets the top and bottom to zero then flexs left and right for the margin */
+    margin: 0  auto; 
+    padding: 0 15px;
+}
+.container-sm {
+    max-width: 800px;
+    margin: 0  auto; 
+    padding: 0 15px;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    padding: 13px 20px;
+    background: var(--light-color);
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+}
+
+ .btn:hover {
+    opacity: 0.8;
+ }
+
+ .btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+ }
+
+ .btn-dark {
+    background: var(--dark-color);
+    color:#fff;
+ }
+
+ .btn-block {
+    display: block;
+    width: 100%;
+
+ }

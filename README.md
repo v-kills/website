@@ -1,5 +1,5 @@
 # website-2.0
-# Veronica Killingsworth Take Home Fetch assignment 
+# Veronica Killingsworth adding auth login to website
 
 ## Available Scripts
 
